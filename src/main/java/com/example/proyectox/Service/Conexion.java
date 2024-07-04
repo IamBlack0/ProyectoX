@@ -7,10 +7,9 @@ import java.sql.SQLException;
 public class Conexion {
 
     // Datos de conexión
-    private static final String URL = "jdbc:mariadb://localhost:3306/proyectox";
-    private static final String USER = "root";
-    private static final String PASSWORD = "heidi1234";
-
+    private static final String URL = "jdbc:mariadb://163.123.183.93:17664/shadowars";
+    private static final String USER = "price";
+    private static final String PASSWORD = "blackOpsII*";
 
     public Connection abrirDB(){
         try {
