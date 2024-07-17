@@ -8,6 +8,7 @@ public class Usuarios {
     private int rol_usuario;
 
 
+
 //CONSTRUCTORES
     public Usuarios( String nombre_usuario, String correo_usuario, String contra_usuario, int rol_usuario) {
         this.nombre_usuario = nombre_usuario;

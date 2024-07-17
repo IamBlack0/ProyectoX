@@ -1,12 +1,12 @@
+// PersonajeDB.java
 package com.example.proyectox.Service;
 
 import com.example.proyectox.Models.Personaje;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PersonajeDB {
     Connection conexion;
@@ -26,9 +26,11 @@ public class PersonajeDB {
                 Personaje personaje = new Personaje(
                         result.getInt("id_personaje"),
                         result.getString("personaje"),
-                        result.getInt("suministro_personaje"),
-                        result.getInt("soldados_personaje"),
-                        result.getString("img_personaje")
+                        result.getString("img_personaje"),
+                        result.getString("lugar_personaje"),
+                        result.getString("fecha_personaje"),
+                        result.getString("mision_personaje"),
+                        result.getString("descripcion_personaje") // Obtener descripcion_personaje
                 );
 
                 personajes.add(personaje);
@@ -42,5 +44,4 @@ public class PersonajeDB {
         }
         return null;
     }
-
 }
