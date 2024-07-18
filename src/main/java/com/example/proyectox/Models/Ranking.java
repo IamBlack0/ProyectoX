@@ -5,8 +5,9 @@ public class Ranking {
     private int puntaje_ranking;
     private String fecha_ranking;
     private int id_ranking_usuario;
+    private int id_personaje_ranking;
 
-    public Ranking() {
+    public Ranking(int idRanking, int puntajeRanking, String fechaRanking, int idRankingUsuario, int idPersonajeRanking) {
     }
 
     public Ranking(int id_ranking, int puntaje_ranking, String fecha_ranking, int id_ranking_usuario) {
@@ -46,5 +47,13 @@ public class Ranking {
 
     public void setId_ranking_usuario(int id_ranking_usuario) {
         this.id_ranking_usuario = id_ranking_usuario;
+    }
+
+    public int getId_personaje_ranking() {
+        return id_personaje_ranking;
+    }
+
+    public void setId_personaje_ranking(int id_personaje_ranking) {
+        this.id_personaje_ranking = id_personaje_ranking;
     }
 }

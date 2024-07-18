@@ -28,7 +28,8 @@ public class RankingDB {
                         result.getInt("id_ranking"),
                         result.getInt("puntaje_ranking"),
                         result.getString("fecha_ranking"),
-                        result.getInt("id_ranking_usuario")
+                        result.getInt("id_ranking_usuario"),
+                        result.getInt("id_personaje_ranking")
                 );
 
                 rankings.add(ranking);
