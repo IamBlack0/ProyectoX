@@ -1,4 +1,3 @@
-// PersonajeDB.java
 package com.example.proyectox.Service;
 
 import com.example.proyectox.Models.Personaje;
@@ -30,7 +29,8 @@ public class PersonajeDB {
                         result.getString("lugar_personaje"),
                         result.getString("fecha_personaje"),
                         result.getString("mision_personaje"),
-                        result.getString("descripcion_personaje") // Obtener descripcion_personaje
+                        result.getString("descripcion_personaje"),
+                        result.getString("audio_personaje") // Obtener audio_personaje
                 );
 
                 personajes.add(personaje);
