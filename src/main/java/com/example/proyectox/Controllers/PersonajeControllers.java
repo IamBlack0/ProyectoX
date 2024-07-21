@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 public class PersonajeControllers {
     @GetMapping("/personajes/all")
-    public List<Personaje> ObtenerTodoPersonaje(){
+    public List<Personaje> ObtenerTodoPersonaje() {
         return new PersonajeDB().ObtenerPersonajes();
     }
 }

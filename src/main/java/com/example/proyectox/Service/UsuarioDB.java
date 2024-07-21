@@ -12,6 +12,7 @@ public class UsuarioDB {
         conexion = new Conexion().abrirDB();
     }
 
+    // Método para registrar un usuario
     public Usuarios registrarUsuario(Usuarios usuario) {
         try {
             String query = "INSERT INTO usuarios (nombre_usuario, correo_usuario, contra_usuario, rol_usuario, img_usuario) VALUES (?, ?, ?, ?, ?)";
@@ -43,6 +44,7 @@ public class UsuarioDB {
         return null;
     }
 
+    // Método para verificar si el correo existe
     public boolean existeCorreo(String correo) {
         try {
             String query = "SELECT 1 FROM usuarios WHERE correo_usuario = ?";
@@ -59,6 +61,7 @@ public class UsuarioDB {
         }
     }
 
+    // Método para verificar si el nombre de usuario existe
     public boolean existeNombreUsuario(String nombreUsuario) {
         try {
             String query = "SELECT 1 FROM usuarios WHERE nombre_usuario = ?";
@@ -75,6 +78,7 @@ public class UsuarioDB {
         }
     }
 
+    // Método para iniciar sesión
     public Usuarios iniciarSesion(String correo, String contrasena) {
         try {
             String query = "SELECT * FROM usuarios WHERE correo_usuario = ? AND contra_usuario = ?";
@@ -101,6 +105,7 @@ public class UsuarioDB {
         return null;
     }
 
+    // Método para actualizar la imagen de usuario
     public boolean actualizarImagenUsuario(int idUsuario, String nuevaImagen) {
         try {
             String query = "UPDATE usuarios SET img_usuario = ? WHERE id_usuario = ?";
@@ -142,12 +147,17 @@ public class UsuarioDB {
         return usuarios;
     }
 
-    // Eliminar un usuario
-    public boolean eliminarUsuario(int idUsuario) {
+    // Método para actualizar un usuario
+    public boolean actualizarUsuario(Usuarios usuario) {
         try {
-            String query = "DELETE FROM usuarios WHERE id_usuario = ?";
+            String query = "UPDATE usuarios SET nombre_usuario = ?, correo_usuario = ?, contra_usuario = ?, rol_usuario = ?, img_usuario = ? WHERE id_usuario = ?";
             PreparedStatement stmt = conexion.prepareStatement(query);
-            stmt.setInt(1, idUsuario);
+            stmt.setString(1, usuario.getNombre_usuario());
+            stmt.setString(2, usuario.getCorreo_usuario());
+            stmt.setString(3, usuario.getContra_usuario());
+            stmt.setInt(4, usuario.getRol_usuario());
+            stmt.setString(5, usuario.getImg_usuario());
+            stmt.setInt(6, usuario.getId_usuario());
             int rowsAffected = stmt.executeUpdate();
             stmt.close();
             return rowsAffected > 0;
@@ -157,16 +167,12 @@ public class UsuarioDB {
         }
     }
 
-    // Actualizar un usuario (sin la imagen de perfil)
-    public boolean actualizarUsuario(Usuarios usuario) {
+    // Método para eliminar un usuario
+    public boolean eliminarUsuario(int idUsuario) {
         try {
-            String query = "UPDATE usuarios SET nombre_usuario = ?, correo_usuario = ?, contra_usuario = ?, rol_usuario = ? WHERE id_usuario = ?";
+            String query = "DELETE FROM usuarios WHERE id_usuario = ?";
             PreparedStatement stmt = conexion.prepareStatement(query);
-            stmt.setString(1, usuario.getNombre_usuario());
-            stmt.setString(2, usuario.getCorreo_usuario());
-            stmt.setString(3, usuario.getContra_usuario());
-            stmt.setInt(4, usuario.getRol_usuario());
-            stmt.setInt(5, usuario.getId_usuario());
+            stmt.setInt(1, idUsuario);
             int rowsAffected = stmt.executeUpdate();
             stmt.close();
             return rowsAffected > 0;

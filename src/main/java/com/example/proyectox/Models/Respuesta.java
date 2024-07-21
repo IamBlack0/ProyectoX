@@ -6,6 +6,16 @@ public class Respuesta {
     private int efecto_respuesta;
     private int id_respuesta_pregunta;
 
+    public Respuesta() {
+    }
+
+    public Respuesta(int id_respuesta, String respuesta, int efecto_respuesta, int id_respuesta_pregunta) {
+        this.id_respuesta = id_respuesta;
+        this.respuesta = respuesta;
+        this.efecto_respuesta = efecto_respuesta;
+        this.id_respuesta_pregunta = id_respuesta_pregunta;
+    }
+
     public int getId_respuesta() {
         return id_respuesta;
     }
@@ -36,17 +46,5 @@ public class Respuesta {
 
     public void setId_respuesta_pregunta(int id_respuesta_pregunta) {
         this.id_respuesta_pregunta = id_respuesta_pregunta;
-    }
-
-
-
-    public Respuesta(int id_respuesta, String respuesta, int efecto_respuesta, int id_respuesta_pregunta) {
-        this.id_respuesta = id_respuesta;
-        this.respuesta = respuesta;
-        this.efecto_respuesta = efecto_respuesta;
-        this.id_respuesta_pregunta = id_respuesta_pregunta;
-    }
-
-    public Respuesta() {
     }
 }

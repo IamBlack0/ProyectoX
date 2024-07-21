@@ -10,15 +10,14 @@ import java.util.List;
 public class PersonajeDB {
     Connection conexion;
 
-    public PersonajeDB(){
+    public PersonajeDB() {
         conexion = new Conexion().abrirDB();
     }
 
-    public List<Personaje> ObtenerPersonajes(){
+    public List<Personaje> ObtenerPersonajes() {
         try {
             Statement stmt = conexion.createStatement();
             String query = "SELECT * FROM personajes";
-
             List<Personaje> personajes = new ArrayList<>();
             ResultSet result = stmt.executeQuery(query);
             while (result.next()) {
